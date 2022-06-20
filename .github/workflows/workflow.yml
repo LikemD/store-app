@@ -22,10 +22,6 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
     - name: Decode Keystore
-<<<<<<< HEAD
-=======
-        id: decode-keystore
->>>>>>> df37487d7eeba34fdc4877c3de0fe9c7dd779ca8
         uses: timheuer/base64-to-file@v1
         with:
           fileName: 'keystore/upload-keystore.jks'
