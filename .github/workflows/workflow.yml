@@ -22,31 +22,10 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
     - name: Decode Keystore
-<<<<<<< HEAD
       uses: timheuer/base64-to-file@v1
       with:
         fileName: 'keystore/upload-keystore.jks'
         encodedString: ${{ secrets.KEYSTORE }}
-=======
-        uses: timheuer/base64-to-file@v1
-        with:
-          fileName: 'keystore/upload-keystore.jks'
-          encodedString: ${{ secrets.KEYSTORE }}
->>>>>>> dd542086f60f457f9ecd868b9feed3fa7e075bd4
-    
-    - uses: actions/checkout@v3
-    - name: set up JDK 1.8
-      uses: actions/setup-java@v1
-      with:
-        java-version: 1.8
-    - name: Make gradlew executable
-      run: chmod +x ./gradlew
-    - name: build prod
-      run: ./gradlew app:bundleRelease
-      env:
-        SIGNING_KEY_ALIAS: ${{ secrets.SIGNING_KEY_ALIAS }}
-        SIGNING_KEY_PASSWORD: ${{ secrets.SIGNING_KEY_PASSWORD }}
-        SIGNING_STORE_PASSWORD: ${{ secrets.SIGNING_STORE_PASSWORD }}
 
     - uses: actions/checkout@v3
     - uses: actions/setup-java@v2
@@ -60,6 +39,10 @@ jobs:
     - run: flutter test
     - run: flutter build apk
     - run: flutter build appbundle
+      env:
+        SIGNING_KEY_ALIAS: ${{ secrets.SIGNING_KEY_ALIAS }}
+        SIGNING_KEY_PASSWORD: ${{ secrets.SIGNING_KEY_PASSWORD }}
+        SIGNING_STORE_PASSWORD: ${{ secrets.SIGNING_STORE_PASSWORD }}
     
   build-ios:
     runs-on: macos-latest
