@@ -22,17 +22,10 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
     - name: Decode Keystore
-<<<<<<< HEAD
       uses: timheuer/base64-to-file@v1
       with:
         fileName: 'keystore/upload-keystore.jks'
         encodedString: ${{ secrets.KEYSTORE }}
-=======
-        uses: timheuer/base64-to-file@v1
-        with:
-          fileName: 'keystore/upload-keystore.jks'
-          encodedString: ${{ secrets.KEYSTORE }}
->>>>>>> dd542086f60f457f9ecd868b9feed3fa7e075bd4
     
     - uses: actions/checkout@v3
     - name: set up JDK 1.8
