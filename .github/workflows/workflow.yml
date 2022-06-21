@@ -37,7 +37,7 @@ jobs:
 
     - name: Make gradlew executable
       run: |
-        chmod +x ./gradlew
+        chmod 777 gradlew
 
     - name: build prod
       run: ./gradlew app:bundleRelease
