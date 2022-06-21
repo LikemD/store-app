@@ -57,7 +57,7 @@ jobs:
       uses: actions/upload-artifact@v2
       with:
         name: Build Artifacts
-        path: build/outputs/bundle/release
+        path: build/app/outputs/bundle/release
     
   build-ios:
     runs-on: macos-latest
